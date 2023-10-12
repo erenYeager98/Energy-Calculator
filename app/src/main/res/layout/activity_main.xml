@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/img"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/view2"
+        android:layout_width="312dp"
+        android:layout_height="238dp"
+        android:layout_marginTop="92dp"
+        android:background="@drawable/card"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/view3"
+        android:layout_width="312dp"
+        android:layout_height="238dp"
+        android:layout_marginTop="112dp"
+        android:background="@drawable/card"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view2" />
+
+    <TextView
+        android:id="@+id/hellotxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif"
+        android:text="Energy Calculator"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/view2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/view" />
+
+    <!--displaying a simple text view-->
+    <RadioGroup
+        android:id="@+id/tensionRadioGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="15dp"
+        app:layout_constraintEnd_toEndOf="@+id/view"
+        app:layout_constraintStart_toStartOf="@+id/view"
+        app:layout_constraintTop_toBottomOf="@+id/view2">
+
+        <!-- High Tension RadioButton -->
+
+        <!-- Low Tension RadioButton -->
+        <RadioButton
+            android:id="@+id/highTensionRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="High Tension" />
+
+        <RadioButton
+            android:id="@+id/lowTensionRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Low Tension" />
+
+    </RadioGroup>
+
+    <LinearLayout
+        android:layout_width="312dp"
+        android:layout_height="238dp"
+        android:orientation="vertical"
+        android:id="@+id/layout"
+        android:padding="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/view2"
+        app:layout_constraintEnd_toEndOf="@+id/view2"
+        app:layout_constraintStart_toStartOf="@+id/view2"
+        app:layout_constraintTop_toTopOf="@+id/view2">
+
+        <!-- Typical Appliance Label and Spinner -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/typicalApplianceLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:text="Typical Appliance"
+                android:textSize="16sp" />
+
+            <Spinner
+                android:id="@+id/applianceSpinner"
+                android:textAlignment="center"
+                android:autofillHints="Select the appliance"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@id/typicalApplianceLabel"
+                 />
+
+        </RelativeLayout>
+
+        <!-- Power Usage Label and EditText -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp">
+
+            <TextView
+                android:id="@+id/powerUsageLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:text="Power Usage"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/powerUsageEditText"
+                android:layout_width="114dp"
+                android:textAlignment="center"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="47dp"
+                android:layout_marginEnd="25dp"
+                android:layout_toEndOf="@id/powerUsageLabel"
+                android:inputType="number" />
+
+        </RelativeLayout>
+
+        <!-- Hour Usage Label and EditText -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp">
+
+            <TextView
+                android:id="@+id/hourUsageLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:text="Hour Usage"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/hourUsageEditText"
+                android:layout_width="114dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="61dp"
+                android:layout_marginEnd="22dp"
+                android:layout_toEndOf="@id/hourUsageLabel"
+                android:inputType="number"
+                android:textAlignment="center"/>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="312dp"
+        android:layout_height="238dp"
+        android:padding="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/view3"
+        app:layout_constraintEnd_toEndOf="@+id/view3"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/view3"
+        app:layout_constraintTop_toTopOf="@+id/view3"
+        app:layout_constraintVertical_bias="1.0">
+
+        <!-- Energy Used Per Day Label and EditText -->
+        <TextView
+            android:id="@+id/energyPerDayLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="8dp"
+            android:text="Energy Used Per Day"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/energyPerDayEditText"
+            android:textAlignment="center"
+            android:layout_width="0dp"
+            android:layout_marginTop="25dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_toEndOf="@+id/energyPerDayLabel" />
+
+        <!-- Energy Used Per Month Label and EditText -->
+        <TextView
+            android:id="@+id/energyPerMonthLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/energyPerDayLabel"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="8dp"
+            android:text="Energy Used Per Month"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/energyPerMonthEditText"
+            android:layout_width="0dp"
+            android:textAlignment="center"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/energyPerDayEditText"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="35dp"
+            android:layout_toEndOf="@+id/energyPerMonthLabel" />
+
+        <!-- Energy Used Per Year Label and EditText -->
+        <TextView
+            android:id="@+id/energyPerYearLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/energyPerMonthLabel"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="8dp"
+            android:text="Energy Used Per Year"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/energyPerYearEditText"
+            android:layout_width="0dp"
+            android:textAlignment="center"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/energyPerMonthEditText"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="45dp"
+            android:layout_toEndOf="@+id/energyPerYearLabel" />
+
+    </RelativeLayout>
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="130dp"
+        android:layout_height="38dp"
+        android:background="@drawable/card1"
+        app:layout_constraintBottom_toTopOf="@+id/view3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/view"
+        app:layout_constraintTop_toBottomOf="@+id/tensionRadioGroup"
+        app:srcCompat="@drawable/card1"
+        android:layout_marginBottom="20dp"/>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Calculate"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageButton"
+        app:layout_constraintEnd_toEndOf="@+id/imageButton"
+        app:layout_constraintStart_toStartOf="@+id/imageButton"
+        app:layout_constraintTop_toTopOf="@+id/imageButton" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
