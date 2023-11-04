@@ -1,7 +1,7 @@
 <resources>
-    <string name="app_name">Energy Calculator</string>
+    <string name="app_name">Energy Consumption Calculator</string>
     <string-array name="appliances">
-        <item>Select Appliance</item>
+        <item>Select here</item>
         <item>Water heater</item>
         <item>Fan</item>
         <item>LEB Bulb</item>

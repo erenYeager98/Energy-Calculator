@@ -46,7 +46,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif"
-        android:text="Energy Calculator"
+        android:text="Energy Consumption Calculator"
+        android:textColor="@color/black"
         android:textAlignment="center"
         android:textAllCaps="false"
         android:textSize="34sp"
@@ -74,12 +75,14 @@
             android:id="@+id/highTensionRadioButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/black"
             android:text="High Tension" />
 
         <RadioButton
             android:id="@+id/lowTensionRadioButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/black"
             android:text="Low Tension" />
 
     </RadioGroup>
@@ -107,16 +110,20 @@
                 android:layout_alignParentStart="true"
                 android:layout_centerVertical="true"
                 android:text="Typical Appliance"
-                android:textSize="16sp" />
+                android:textColor="@color/black"
+                android:textSize="14sp" />
 
             <Spinner
                 android:id="@+id/applianceSpinner"
                 android:textAlignment="center"
-                android:autofillHints="Select the appliance"
-                android:layout_width="0dp"
+                android:autofillHints="Select appliance"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
+                android:gravity="center"
+                android:popupBackground="@drawable/card1"
                 android:layout_toEndOf="@id/typicalApplianceLabel"
                  />
 
@@ -134,7 +141,8 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_centerVertical="true"
-                android:text="Power Usage"
+                android:text="Power Usage (Watt)"
+                android:textColor="@color/black"
                 android:textSize="16sp" />
 
             <EditText
@@ -143,6 +151,7 @@
                 android:textAlignment="center"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
+                android:textColor="@color/black"
                 android:layout_marginStart="47dp"
                 android:layout_marginEnd="25dp"
                 android:layout_toEndOf="@id/powerUsageLabel"
@@ -162,7 +171,8 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_centerVertical="true"
-                android:text="Hour Usage"
+                android:text="Hour Usage (Hr)"
+                android:textColor="@color/black"
                 android:textSize="16sp" />
 
             <EditText
@@ -173,6 +183,7 @@
                 android:layout_marginStart="61dp"
                 android:layout_marginEnd="22dp"
                 android:layout_toEndOf="@id/hourUsageLabel"
+                android:textColor="@color/black"
                 android:inputType="number"
                 android:textAlignment="center"/>
 
@@ -200,8 +211,9 @@
             android:layout_alignParentTop="true"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="8dp"
-            android:text="Energy Used Per Day"
-            android:textSize="16sp" />
+            android:text="Energy Consumed KWh/Day"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
 
         <TextView
             android:id="@+id/energyPerDayEditText"
@@ -209,6 +221,7 @@
             android:layout_width="0dp"
             android:layout_marginTop="25dp"
             android:layout_height="wrap_content"
+            android:textColor="@color/black"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
             android:layout_toEndOf="@+id/energyPerDayLabel" />
@@ -222,8 +235,9 @@
             android:layout_alignParentStart="true"
             android:layout_marginTop="40dp"
             android:layout_marginEnd="8dp"
-            android:text="Energy Used Per Month"
-            android:textSize="16sp" />
+            android:text="Energy Consumed KWh/Month"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
 
         <TextView
             android:id="@+id/energyPerMonthEditText"
@@ -232,6 +246,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/energyPerDayEditText"
             android:layout_alignParentEnd="true"
+            android:textColor="@color/black"
             android:layout_marginTop="35dp"
             android:layout_toEndOf="@+id/energyPerMonthLabel" />
 
@@ -244,8 +259,9 @@
             android:layout_alignParentStart="true"
             android:layout_marginTop="40dp"
             android:layout_marginEnd="8dp"
-            android:text="Energy Used Per Year"
-            android:textSize="16sp" />
+            android:text="Energy Consumed KWh/Year"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
 
         <TextView
             android:id="@+id/energyPerYearEditText"
@@ -255,7 +271,24 @@
             android:layout_below="@+id/energyPerMonthEditText"
             android:layout_alignParentEnd="true"
             android:layout_marginTop="45dp"
+            android:textColor="@color/black"
             android:layout_toEndOf="@+id/energyPerYearLabel" />
+
+        <TextView
+            android:id="@+id/tarrif"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/energyPerYearLabel"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_centerInParent="true"
+            android:layout_marginStart="33dp"
+            android:layout_marginTop="14dp"
+            android:layout_marginEnd="31dp"
+            android:layout_marginBottom="10dp"
+            android:text=""
+            android:textAlignment="center"
+            android:textColor="@color/black" />
 
     </RelativeLayout>
 
@@ -268,7 +301,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/view"
         app:layout_constraintTop_toBottomOf="@+id/tensionRadioGroup"
-        app:srcCompat="@drawable/card1"
+        app:srcCompat="@drawable/card"
         android:layout_marginBottom="20dp"/>
 
     <TextView
@@ -277,6 +310,7 @@
         android:layout_height="wrap_content"
         android:text="Calculate"
         android:textSize="20sp"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="@+id/imageButton"
         app:layout_constraintEnd_toEndOf="@+id/imageButton"
         app:layout_constraintStart_toStartOf="@+id/imageButton"

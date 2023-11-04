@@ -2,6 +2,7 @@ package com.app.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -17,6 +18,7 @@ import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
+import java.text.DecimalFormat;
 import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
@@ -28,6 +30,7 @@ private String item;
 private TextView powerUsage;
 private TextView hoursUsage;
 private String selectedOption;
+private TextView tarrif;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -52,8 +55,9 @@ private String selectedOption;
         // Specify the layout to use when the list of choices appears
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
-        // Apply the adapter to the Spinner
+
         spinner.setAdapter(adapter);
+
         ImageButton btn = (ImageButton) findViewById(R.id.imageButton);
 
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -78,6 +82,7 @@ private String selectedOption;
                     energyPerYear = (TextView) findViewById(R.id.energyPerYearEditText);
                     hoursUsage = (TextView) findViewById(R.id.hourUsageEditText);
                     powerUsage = (TextView) findViewById(R.id.powerUsageEditText);
+                    tarrif = (TextView) findViewById(R.id.tarrif);
                     String hrs=null;
                     String pwr=null;
                     hrs = hoursUsage.getText().toString();
@@ -94,29 +99,30 @@ private String selectedOption;
                         unit = 0;
                     }
                     if(!hrs.equals("") && !pwr.equals("")) {
-
+                        DecimalFormat decimalFormat = new DecimalFormat("#.00");
                         float hrs0 = Integer.parseInt(hrs);
                         float pwr0 = Integer.parseInt(pwr);
-                        float perDay = (hrs0*pwr0/1000)*unit;
-
-                        String result0 = String.valueOf(perDay);
+                        float perDay = (hrs0*pwr0/1000);
+                        String result0 = decimalFormat.format(perDay);
                         float perMonth = perDay*30;
                         float perYear = perMonth*12;
-                        String result1 = String.valueOf(perMonth);
-                        String result2 = String.valueOf(perYear);
+                        String result1 = decimalFormat.format(perMonth);
+                        String result2 = decimalFormat.format(perYear);
                         energyPerDay.setText(result0);
                         energyPerMonth.setText(result1);
                         energyPerYear.setText(result2);
+                        if(Objects.equals(selectedOption, "Low Tension") || Objects.equals(selectedOption, "High Tension")){
+                            tarrif.setText("Tarrif: "+String.valueOf(perMonth * 2 * unit));
+
+                        }
+                        else{
+                            tarrif.setText("Choose Tension Level");
+                        }
                     }
                     else{
                         Toast toast = Toast.makeText(MainActivity.this,"Please enter a valid digit",Toast.LENGTH_SHORT);
                         toast.show();
                     }
-
-
-
-
-
             }
         });
         RadioGroup radioGroup = (RadioGroup) findViewById(R.id.tensionRadioGroup);
