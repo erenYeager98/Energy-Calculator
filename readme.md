@@ -6,7 +6,7 @@ To run the app, you need to have Android Studio installed on your computer. You 
 
 To clone the repository, use the following command:
 
-git clone https://github.com/ShamRathan/Energy-Calculator.git
+git clone https://github.com/erenYeager98/Energy-Calculator.git
 
 To open the project in Android Studio, go to File -> Open and select the folder where you cloned the repository.
 
